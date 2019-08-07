@@ -17,3 +17,13 @@
 ###> symfony/web-server-bundle ###
 /.web-server-pid
 ###< symfony/web-server-bundle ###
+/docker/phpdocker/php-fpm/php-ini-overrides.ini
+/docker/phpdocker/nginx/nginx.conf
+
+.idea/
+###> symfony/webpack-encore-bundle ###
+/node_modules/
+/public/build/
+npm-debug.log
+yarn-error.log
+###< symfony/webpack-encore-bundle ###

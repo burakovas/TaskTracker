@@ -1,0 +1,21 @@
+version: "3.5"
+services:
+  tasktracker-php-cli:
+    build: .
+    container_name: tasktracker-php-cli
+    hostname: tasktracker-php-cli
+    working_dir: /application
+    volumes:
+      - ..:/application
+      - ./php-ini-overrides-cli.ini:/etc/php/7.3/cli/conf.d/99-overrides.ini
+#    networks:
+#      - mynetwork
+#    restart: always
+
+
+#networks:
+#  mynetwork:
+#    name: tasktracker-network
+#    driver: bridge
+
+
