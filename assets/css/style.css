@@ -1,0 +1,63 @@
+.header {
+  width: 100%;
+  height: 80px;
+  background-color: #212121;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer {
+  width: 100%;
+  height: 80px;
+  background-color: #f4f4f4;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.entrance {
+  margin-right: 40px;
+  display: flex;
+  flex-direction: row;
+}
+
+.logo {
+  margin-left: 40px;
+}
+
+.newAccount {
+  margin-right: 30px;
+}
+
+.entranceLink {
+  color: #ffffff;
+  font-family: Roboto, serif;
+  font-size: 13px;
+  font-weight: 400;
+  text-decoration: none;
+}
+
+.logoLink {
+  color: #ffffff;
+  font-family: Roboto, serif;
+  font-size: 26px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.footerContact {
+  color: #212121;
+  font-family: Roboto, serif;
+  font-size: 13px;
+  font-weight: 400;
+  margin-left: 20px;
+}
+
+.gitIcon:visited {
+  color: black;
+}
+
+/*# sourceMappingURL=style.css.map */
