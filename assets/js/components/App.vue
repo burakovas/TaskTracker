@@ -1,5 +1,9 @@
 <template>
-    <h2>Welcome to Symfony and Vue Task-tracker</h2>
+    <div>
+        <h2>New title</h2>
+        <p>Some text here</p>
+    </div>
+
 </template>
 
 <script>
