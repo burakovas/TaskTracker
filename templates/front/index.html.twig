@@ -7,20 +7,8 @@
 
 {% block body %}
     <div class="container">
-        <div class="registerMenu">
-            <form action="">
-                <label class="labelRegisterMenu" for="name">Name</label>
-                <input class="inputRegisterMenu" id="name" type="text" required placeholder="your Name"><br>
-                <label class="labelRegisterMenu" for="surname">Surname</label>
-                <input class="inputRegisterMenu" id="surname" type="text" required placeholder="your Surname"><br>
-                <label class="labelRegisterMenu" for="email">Email</label>
-                <input class="inputRegisterMenu" id="email" type="email" required placeholder="your email"><br>
-                <label class="labelRegisterMenu" for="password">Password</label>
-                <input class="inputRegisterMenu" id="password" type="password" required placeholder="your password"><br>
-                <label class="labelRegisterMenu" for="confirmPassword">Confirm Password</label>
-                <input class="inputRegisterMenu" id="confirmPassword" type="password" required placeholder="confirm your password"><br>
-                <input class="inputRegisterMenu inputRegisterMenuButton" type='submit' value="Create account">
-            </form>
+        <div id="app">
+            <App />
         </div>
     </div>
 {% endblock %}
