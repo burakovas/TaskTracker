@@ -13,7 +13,9 @@
             <input class="inputRegisterMenu" id="email" type="email" v-model="email" placeholder="your email"><br>
             <label class="labelRegisterMenu" for="password">Password</label>
             <input class="inputRegisterMenu" id="password" type="password" v-model="password" placeholder="your password"><br>
-            <div><a class="buttonForgotPassoword" href="#">Forgot Password?</a></div>
+            <div class="checkbox"><input type="checkbox" name =_remember_me >
+            <span class="rememberMeCheckbox">Remember me</span><a class="buttonForgotPassoword" href="#">Forgot Password?</a></div>
+
             <input class="inputRegisterMenu inputRegisterMenuButton" type='submit' value="Enter login">
 
         </form>
