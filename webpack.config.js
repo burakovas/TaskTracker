@@ -7,6 +7,9 @@ Encore
     .setPublicPath('/build')
 
     .addEntry('app', './assets/js/app.js')
+    .addStyleEntry('css/style',['./assets/css/style.css'])
+    .addStyleEntry('css/registerpage',['./assets/css/registerpage.css'])
+    .addStyleEntry('css/loginpage',['./assets/css/loginpage.css'])
 
     .enableSassLoader()
 

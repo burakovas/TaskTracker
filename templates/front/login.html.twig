@@ -1,14 +1,15 @@
 {% extends 'base.html.twig' %}
 {% block customStylesheets %}
-    <link rel="stylesheet" href="{{ asset('build/css/registerpage.css') }}" />
+    <link rel="stylesheet" href="{{ asset('build/css/loginpage.css') }}" />
     {{ encore_entry_link_tags('app') }}
 {% endblock %}
 {% block title %}Hello FrontController!{% endblock %}
 
 {% block body %}
+    <div class="singUP">Sing up</div>
     <div class="container">
         <div id="app">
-            <App />
+            <Login />
         </div>
     </div>
 {% endblock %}
