@@ -15,8 +15,17 @@ console.log('Hello Webpack Encore! Edit me in assets/js/app.js');
 
 import Vue from 'vue'
 import App from './components/App.vue'
+import Login from './components/Login.vue'
 
 new Vue({
     el: '#app',
     components: {App}
 });
+
+new Vue({
+    el: '#app',
+    components: {Login}
+});
+
+
+
