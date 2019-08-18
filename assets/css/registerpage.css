@@ -39,7 +39,7 @@
   font-size: 13px;
   font-weight: 700;
   margin-left: 170px;
-  transition: background 1s ease, color 1s linear;
+  transition: 2s;
 }
 
 .labelRegisterMenu {
