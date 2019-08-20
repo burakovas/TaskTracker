@@ -7,7 +7,7 @@ new Vue({
         surname:null,
         email:null,
         password:null,
-        confirmPassword:null
+        confirmPassword:null,
     },
     methods: {
         checkForm:function(e) {
@@ -21,7 +21,7 @@ new Vue({
             if(!this.confirmPassword) this.errors.push("Password confirm required.");
             if(this.password !== this.confirmPassword) this.errors.push("Passwords must match.");
             e.preventDefault();
-        }
+        },
     }});
 
 

@@ -12,6 +12,7 @@
     {% endblock %}
 </head>
 <body>
+{% block header %}
 <div class="header">
     <div class="logo"><a class="logoLink" href="#">TaskTracker</a></div>
     <div class="entrance">
@@ -20,6 +21,7 @@
         <div class="administrator" ><a class="entranceLink" href="#">Administrator's office</a></div>
     </div>
 </div>
+{% endblock %}
 
 {% block body %}
 
@@ -27,9 +29,10 @@
 
 {% block javascripts %}
     <script src="https://kit.fontawesome.com/1545cddb12.js"></script>
-              {{ encore_entry_script_tags('app') }}
+
 {% endblock %}
 
+{% block footer %}
 <div class="footer">
     <div class="footerContact">Contact</div>
     <div>
@@ -38,6 +41,7 @@
     <div>
     </div>
 </div>
+{% endblock %}
 </body>
 </html>
 {% block customJs %}
