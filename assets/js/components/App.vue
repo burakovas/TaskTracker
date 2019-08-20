@@ -1,6 +1,6 @@
 <template>
     <div class="registerMenu">
-        <form id="app" @submit="checkForm" action="#" method="post">
+        <form id="app" @submit="checkForm" action="/user/register" method="post">
 
            <p v-if="errors.length">
               <b>Please correct the following error(s):</b>
@@ -10,15 +10,15 @@
            </p>
 
             <label class="labelRegisterMenu" for="name">Name</label>
-            <input class="inputRegisterMenu" type="text"  id="name" v-model="name" placeholder="your Name"><br>
+            <input class="inputRegisterMenu" type="text"  id="name" name="name" v-model="name" placeholder="your Name"><br>
             <label class="labelRegisterMenu" for="surname">Surname</label>
-            <input class="inputRegisterMenu" id="surname" type="text" v-model="surname" placeholder="your Surname"><br>
+            <input class="inputRegisterMenu" id="surname" name="lastName" type="text" v-model="surname" placeholder="your Surname"><br>
             <label class="labelRegisterMenu" for="email">Email</label>
-            <input class="inputRegisterMenu" id="email" type="email" v-model="email" placeholder="your email"><br>
+            <input class="inputRegisterMenu" id="email" name="email" type="email" v-model="email" placeholder="your email"><br>
             <label class="labelRegisterMenu" for="password">Password</label>
-            <input class="inputRegisterMenu" id="password" type="password" v-model="password" placeholder="your password"><br>
+            <input class="inputRegisterMenu" id="password" name="password" type="password" v-model="password" placeholder="your password"><br>
             <label class="labelRegisterMenu" for="confirmPassword">Confirm Password</label>
-            <input class="inputRegisterMenu" id="confirmPassword" type="password" v-model="confirmPassword" placeholder="confirm your password"><br>
+            <input class="inputRegisterMenu" id="confirmPassword" name="confirmPassword" type="password" v-model="confirmPassword" placeholder="confirm your password"><br>
             <input class="inputRegisterMenu inputRegisterMenuButton" type='submit' value="Create account">
         </form>
     </div>

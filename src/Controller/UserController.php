@@ -38,11 +38,13 @@ class UserController extends AbstractController
      */
     public function registerAction(Request $request, UserPasswordEncoderInterface $passwordEncoder)
     {
+
         $user = new User();
         $form = $this->createForm(UserType::class, $user);
         $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
+//        dd($form->isValid());
+//        if ($form->isSubmitted() && $form->isValid()) {
+        if ($form->isSubmitted()) {
 
             $user->setLastName($request->request->get('user')['lastName']);
             $user->setEmail($request->request->get('user')['email']);
