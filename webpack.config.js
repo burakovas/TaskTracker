@@ -10,7 +10,6 @@ Encore
     .addStyleEntry('css/style',['./assets/css/style.css'])
     .addStyleEntry('css/registerpage',['./assets/css/registerpage.css'])
     .addStyleEntry('css/style2',['./assets/css/style2.css'])
-    .addStyleEntry('css/bootstrap2',['./assets/css/bootstrap2.css'])
 
     .enableSassLoader()
 
