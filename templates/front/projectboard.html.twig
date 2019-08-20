@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+{% block customStylesheets %}
+    <link rel="stylesheet" href="{{ asset('build/css/style2.css') }}" />
+    <link rel="stylesheet" href="{{ asset('build/css/bootstrap2.css') }}"/>
+    {{ encore_entry_link_tags('app') }}
+{% endblock %}
+{% block body %}
+    <div class="all">
+      <div class="page page-contact">
+        <div class="page-nav">
+          <div class="page-nav-inner">
+            <a href="#" class="btn btn-accent hidden-xs">Add project</a>
+            <div class="group"><a href="#" class="btn btn-default">Others projects</a><a href="#" class="btn btn-default">My projects</a>
+            </div>
+          </div>
+        </div>
+        <div class="page-content">
+          <div class="container-fluid">
+            <div class="blocks">
+              <a class="myblock" imghref="#">TaskTracker@mail.ru<img class="imagecrown" src="images/crown.png" alt="crown"></a>
+              <a class="myblock" href="#">TaskTracker@mail.ru<img class="imagecrown" src="images/crown.png" alt="crown"></a>
+              <a class="myblock" href="#">TaskTracker@mail.ru<img class="imagecrown" src="images/crown.png" alt="crown"></a>
+              <a class="myblock" href="#">TaskTracker@mail.ru<img class="imagecrown" src="images/crown.png" alt="crown"></a>
+              <a class="myblock" href="#">TaskTracker@mail.ru<img class="imagecrown" src="images/crown.png" alt="crown"></a>
+              <a class="myblock" href="#">TaskTracker@mail.ru<img class="imagecrown" src="images/crown.png" alt="crown"></a>
+              <a class="myblock" href="#">TaskTracker@mail.ru<img class="imagecrown" src="images/crown.png" alt="crown"></a>
+              <a class="myblock" href="#">TaskTracker@mail.ru<img class="imagecrown" src="images/crown.png" alt="crown"></a>
+              <a class="myblock" href="#">TaskTracker@mail.ru<img class="imagecrown" src="images/crown.png" alt="crown"></a>
+              <a class="myblock" href="#">TaskTracker@mail.ru<img class="imagecrown" src="images/crown.png" alt="crown"></a>
+            </div>
+            <div class="blocks">
+              <a class="othersblock" href="#">TaskTracker@mail.ru</a>
+              <a class="othersblock" href="#">TaskTracker@mail.ru</a>
+              <a class="othersblock" href="#">TaskTracker@mail.ru</a>
+              <a class="othersblock" href="#">TaskTracker@mail.ru</a>
+              <a class="othersblock" href="#">TaskTracker@mail.ru</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+{% endblock %}
