@@ -81,4 +81,16 @@
   color: #212121;
 }
 
+.rememberMeCheckbox {
+  margin-right: 237px;
+  color: #212121;
+  font-family: Roboto, serif;
+  font-size: 13px;
+  font-weight: 400;
+}
+
+.checkbox {
+  margin-bottom: 10px;
+}
+
 /*# sourceMappingURL=loginpage.css.map */
