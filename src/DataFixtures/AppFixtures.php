@@ -24,6 +24,11 @@ class AppFixtures extends Fixture
             $project->setDescription("some Description");
             $project->setInvite(1);
 
+            if ($name == "Task Tracker"){
+                $project->setCategory(2);
+            }
+
+
             $manager->persist($project);
         }
 
