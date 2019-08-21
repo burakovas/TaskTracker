@@ -16,24 +16,13 @@
         <div class="page-content">
           <div class="container-fluid">
             <div class="blocks">
-              <a class="myblock" imghref="#">TaskTracker@mail.ru<img class="imagecrown" src="images/crown.png" alt="crown"></a>
-              <a class="myblock" href="#">TaskTracker@mail.ru<img class="imagecrown" src="images/crown.png" alt="crown"></a>
-              <a class="myblock" href="#">TaskTracker@mail.ru<img class="imagecrown" src="images/crown.png" alt="crown"></a>
-              <a class="myblock" href="#">TaskTracker@mail.ru<img class="imagecrown" src="images/crown.png" alt="crown"></a>
-              <a class="myblock" href="#">TaskTracker@mail.ru<img class="imagecrown" src="images/crown.png" alt="crown"></a>
-              <a class="myblock" href="#">TaskTracker@mail.ru<img class="imagecrown" src="images/crown.png" alt="crown"></a>
-              <a class="myblock" href="#">TaskTracker@mail.ru<img class="imagecrown" src="images/crown.png" alt="crown"></a>
-              <a class="myblock" href="#">TaskTracker@mail.ru<img class="imagecrown" src="images/crown.png" alt="crown"></a>
-              <a class="myblock" href="#">TaskTracker@mail.ru<img class="imagecrown" src="images/crown.png" alt="crown"></a>
-              <a class="myblock" href="#">TaskTracker@mail.ru<img class="imagecrown" src="images/crown.png" alt="crown"></a>
+              {% for project in projects %}
+                <a class="myblock" href="#">{{ project.name }}
+                    {% if project.invite==1 %}<img class="imagecrown" src="images/crown.png" alt="crown">{% endif %}
+                </a>
+              {% endfor %}
             </div>
-            <div class="blocks">
-              <a class="othersblock" href="#">TaskTracker@mail.ru</a>
-              <a class="othersblock" href="#">TaskTracker@mail.ru</a>
-              <a class="othersblock" href="#">TaskTracker@mail.ru</a>
-              <a class="othersblock" href="#">TaskTracker@mail.ru</a>
-              <a class="othersblock" href="#">TaskTracker@mail.ru</a>
-            </div>
+
           </div>
         </div>
       </div>
