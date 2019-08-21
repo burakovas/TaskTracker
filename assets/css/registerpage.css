@@ -54,4 +54,13 @@
   background-color: #ffffff;
 }
 
+.errorStyle{
+  color: red;
+  margin: 10px 0 10px 0;
+}
+
+.badge{
+  color: red;
+}
+
 /*# sourceMappingURL=registerpage.css.map */
