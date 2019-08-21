@@ -18,6 +18,10 @@
 {#                    <li v-for="error in errors">${ error }</li>#}
 {#                </ul>#}
 {#                </p>#}
+
+                {% if error %}
+                    <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                {% endif %}
                 <label class="labelRegisterMenu" for="email">Email</label>
                 <input class="inputRegisterMenu" name="_email" id="email" type="email" v-model="email" placeholder="your email"><br>
                 <label class="labelRegisterMenu" for="password">Password</label>

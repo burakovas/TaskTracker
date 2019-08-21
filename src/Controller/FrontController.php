@@ -11,7 +11,7 @@ use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 class FrontController extends AbstractController
 {
     /**
-     * @Route("/front", name="main_page")
+     * @Route("/", name="main_page")
      * @Template()
      */
     public function indexAction()
