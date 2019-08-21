@@ -38,19 +38,19 @@ class UserController extends AbstractController
      */
     public function registerAction(Request $request, UserPasswordEncoderInterface $passwordEncoder)
     {
+
         $user = new User();
         $form = $this->createForm(UserType::class, $user);
         $form->handleRequest($request);
+        $submittedToken = $request->request->get('token');
 
-        if ($form->isSubmitted() && $form->isValid()) {
-
+        if ($this->isCsrfTokenValid('register-user', $submittedToken) && $form->isSubmitted() && $form->isValid()) {
             $user->setLastName($request->request->get('user')['lastName']);
             $user->setEmail($request->request->get('user')['email']);
             $password = $request->request->get('user')['password']['first'];
             $user->setPassword($passwordEncoder->encodePassword($user, $password));
             $user->setName($request->request->get('user')['name']);
             $user->setRoles(['ROLE_USER']);
-
             $this->dm->persist($user);
             $this->dm->flush();
 

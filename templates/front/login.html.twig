@@ -1,29 +1,42 @@
+{% extends 'base.html.twig' %}
+{% block customStylesheets %}
+    <link rel="stylesheet" href="{{ asset('build/css/loginpage.css') }}" />
+    {{ encore_entry_link_tags('app') }}
+{% endblock %}
+{% block title %}Hello FrontController!{% endblock %}
 
-<div>
+{% block body %}
+    <div class="singUP">Sing up</div>
+    <div class="container">
+        <div class="registerMenu">
+            <form id="app" @submit="checkForm" action="#" method="post">
+{#                <meta property="video" content="http://video.com/video33353.mp4" />#}
 
-{% if error is defined %}
-    <div class="alert alert-danger">
-        {{ error.messageKey | trans(error.messageData, 'security') }}
+{#                <p v-if="errors.length">#}
+{#                    <b>Please correct the following error(s):</b>#}
+{#                <ul>#}
+{#                    <li v-for="error in errors">${ error }</li>#}
+{#                </ul>#}
+{#                </p>#}
+                <label class="labelRegisterMenu" for="email">Email</label>
+                <input class="inputRegisterMenu" name="_email" id="email" type="email" v-model="email" placeholder="your email"><br>
+                <label class="labelRegisterMenu" for="password">Password</label>
+                <input class="inputRegisterMenu" name="_password" id="password" type="password" v-model="password" placeholder="your password"><br>
+                <div class="checkbox"><input type="checkbox" name="_remember_me" >
+                    <span class="rememberMeCheckbox">Remember me</span><a class="buttonForgotPassoword" href="#">Forgot Password?</a></div>
+
+                <input class="inputRegisterMenu inputRegisterMenuButton" type='submit' value="Enter login">
+                <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+
+            </form>
+
+        </div>
     </div>
-{% endif %}
+    {# <div class="rating" id="rating"  data-authenticated={{csrf_token ('authenticate') }}>#}
 
-<form method="POST" action="{{ path('login') }}" class="form-signin">
-    <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-    <label for="inputEmail" class="sr-only">Email address</label>
-    <input type="email" name="_email" id="inputEmail" class="form-control" placeholder="Email address" required
-           autofocus>
-    <label for="inputPassword" class="sr-only">Password</label>
-    <input type="password" name="_password" id="inputPassword" class="form-control" placeholder="Password" required>
-    <div class="checkbox mb-3">
-        <label>
-            <input type="checkbox" name="_remember_me"> Remember me
-        </label>
     </div>
-    <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-    <p class="mt-5 mb-3 text-muted">&copy; 2017-2018 <a href="index.html.twig">main page</a></p>
-    <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
-</form>
-<a href="{{ path('logout') }}">Logout</a>
-    <a href="{{ path('register') }}">Register</a>
-
-</div>
+{% endblock %}
+{% block customJs %}
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="{{ asset('build/js/login.js') }}"></script>
+{% endblock %}

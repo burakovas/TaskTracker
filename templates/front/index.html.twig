@@ -1,10 +1,22 @@
 {% extends 'base.html.twig' %}
-
+{% block customStylesheets %}
+    <link rel="stylesheet" href="{{ asset('build/css/registerpage.css') }}" />
+    {{ encore_entry_link_tags('app') }}
+{% endblock %}
 {% block title %}Hello FrontController!{% endblock %}
 
 {% block body %}
-{#<div id="app">#}
-{#    <App />#}
-{#</div>#}
-    {% include 'front/login.html.twig' %}
+    <div class="container">
+
+        Это главная страница. Тут будет какой-то контент
+
+    </div>
+
+
+
 {% endblock %}
+{% block customJs %}
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="{{ asset('build/js/index.js') }}"></script>
+{% endblock %}
+
