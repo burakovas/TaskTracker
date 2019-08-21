@@ -10,15 +10,14 @@
     <div class="container">
         <div class="registerMenu">
             <form id="app" @submit="checkForm" action="#" method="post">
-                <meta property="video" content="http://video.com/video33353.mp4" />
-                {# <div>{{ test ()}}</div>
-                 <div>{{ token }}</div>#}
-                <p v-if="errors.length">
-                    <b>Please correct the following error(s):</b>
-                <ul>
-                    <li v-for="error in errors">${ error }</li>
-                </ul>
-                </p>
+{#                <meta property="video" content="http://video.com/video33353.mp4" />#}
+
+{#                <p v-if="errors.length">#}
+{#                    <b>Please correct the following error(s):</b>#}
+{#                <ul>#}
+{#                    <li v-for="error in errors">${ error }</li>#}
+{#                </ul>#}
+{#                </p>#}
                 <label class="labelRegisterMenu" for="email">Email</label>
                 <input class="inputRegisterMenu" name="_email" id="email" type="email" v-model="email" placeholder="your email"><br>
                 <label class="labelRegisterMenu" for="password">Password</label>

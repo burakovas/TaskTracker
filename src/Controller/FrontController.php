@@ -16,9 +16,13 @@ class FrontController extends AbstractController
      */
     public function indexAction()
     {
+        if ($this->getUser())
+        {
+            return $this->redirectToRoute('project_index');
+        }
         dump($this->getUser());
         return [
-            'controller_name' => 'FrontController',
+
         ];
     }
 

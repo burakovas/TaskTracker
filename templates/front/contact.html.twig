@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+{% block customStylesheets %}
+    <link rel="stylesheet" href="{{ asset('build/css/style2.css') }}" />
+    <link rel="stylesheet" href="{{ asset('build/css/bootstrap2.css') }}"/>
+    {{ encore_entry_link_tags('app') }}
+{% endblock %}
+ 
+{% block body %}
+    <div class="all">
+        <div class="page-header">
+          <div class="container-fluid">
+            <h1>Contact</h1>
+          </div>
+        </div>
+        <div class="page-content">
+          <div class="container-fluid">
+            <div class="text-center">
+              <div class="email"><a href="TaskTracker@mail.ru">TaskTracker@mail.ru</a></div>
+              <div class="phone">8 800 000 000</div>
+              <div class="adress">Russian, Moscow<br>Kremlin, 101000</div><a href="#" class="btn btn-accent">feedback</a>
+            </div>
+          </div>
+        </div>
+      </div>
+{% endblock %}

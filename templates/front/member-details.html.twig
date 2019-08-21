@@ -1,0 +1,70 @@
+{% extends 'base.html.twig' %}
+{% block customStylesheets %}
+    <link rel="stylesheet" href="{{ asset('build/css/style2.css') }}" />
+    <link rel="stylesheet" href="{{ asset('build/css/bootstrap2.css') }}"/>
+    {{ encore_entry_link_tags('app') }}
+{% endblock %}
+{% block body %}
+    <div class="all">
+      <div class="page page-member-details">
+        <div class="page-nav">
+          <div class="page-nav-inner">
+            <ul class="page-nav__list">
+              <li><a href="#">Different</a></li>
+              <li><a href="#">Open</a></li>
+              <li><a href="#">In Progress</a></li>
+              <li><a href="#">Review</a></li>
+              <li><a href="#">Done</a></li>
+              <li><a href="#">Ideas</a></li>
+            </ul>
+            <div class="btn-group"><a href="#" class="btn btn-default">to others</a><a href="#" class="btn btn-default">for me</a>
+            </div><a href="#" class="btn btn-accent hidden-xs">add task</a>
+          </div>
+        </div>
+        <div class="page-header">
+          <div class="container-fluid">
+            <h1>Sasha T.</h1>
+          </div>
+        </div>
+        <div class="page-content">
+          <div class="member-table">
+            <div class="member-row">
+              <div class="member-col">Ava</div>
+              <div class="member-col">
+                <div class="member-avatar"><img src="images/image.png" alt=""></div>
+              </div>
+            </div>
+            <div class="member-row">
+              <div class="member-col">Tasks</div>
+              <div class="member-col"><a href="#">8 opened</a> <a href="#">3 ideas</a>
+              </div>
+            </div>
+            <div class="member-row">
+              <div class="member-col">E-mail</div>
+              <div class="member-col"><a href="mailto: team@creat.net">team@creat.net</a></div>
+            </div>
+            <div class="member-row">
+              <div class="member-col">Web Site</div>
+              <div class="member-col"><a href="#">TaskTracker.ru</a></div>
+            </div>
+            <div class="member-row">
+              <div class="member-col">Phone</div>
+              <div class="member-col">+1-732-153-9514</div>
+            </div>
+            <div class="member-row">
+              <div class="member-col">City</div>
+              <div class="member-col">London, UK</div>
+            </div>
+            <div class="member-row">
+              <div class="member-col">Skills</div>
+              <div class="member-col">Web Design, HTML, CSS</div>
+            </div>
+            <div class="member-row member-row-footer">
+              <div class="member-col">New Task</div>
+              <div class="member-col"><a href="#" class="btn btn-accent">create task</a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+{% endblock %}
