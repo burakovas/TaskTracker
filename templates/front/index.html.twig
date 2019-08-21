@@ -1,22 +1,26 @@
 {% extends 'base.html.twig' %}
 {% block customStylesheets %}
-    <link rel="stylesheet" href="{{ asset('build/css/registerpage.css') }}" />
-    {{ encore_entry_link_tags('app') }}
+    <link rel="stylesheet" href="{{ asset('build/css/index.css') }}" />
 {% endblock %}
 {% block title %}Hello FrontController!{% endblock %}
 
 {% block body %}
     <div class="container">
-
-        Это главная страница. Тут будет какой-то контент
-
+        <div class="mainText">Welcome to TaskTracer
+            with us you can create and share projects,
+            we will be glad to see you among the active users, rather sign up or log in
+        </div>
+<div class="buttonContainer">
+        <button  class="inputRegisterMenu inputRegisterMenuButton"  >Sing up</button>
+        <button type="submit" class="inputRegisterMenu inputRegisterMenuButton"  >Create account</button>
+</div>
     </div>
 
 
 
 {% endblock %}
 {% block customJs %}
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <script src="{{ asset('build/js/index.js') }}"></script>
+    {#<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="{{ asset('build/js/index.js') }}"></script>#}
 {% endblock %}
 

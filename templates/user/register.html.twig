@@ -1,7 +1,6 @@
 {% extends 'base.html.twig' %}
 {% block customStylesheets %}
     <link rel="stylesheet" href="{{ asset('build/css/registerpage.css') }}" />
-    {{ encore_entry_link_tags('app') }}
 {% endblock %}
 {% block title %}Register{% endblock %}
 
@@ -18,7 +17,7 @@
            <div class="errorStyle"> {{ form_errors(form.lastName) }}</div>
                 <label class="labelRegisterMenu" for="user_email">Email</label>
                 {{ form_widget(form.email, {'attr': {'class': 'inputRegisterMenu', 'placeholder' : 'Your email'}}) }}
-            <div class="errorStyle">test {{ form_errors(form.email) }}</div>
+            <div class="errorStyle">{{ form_errors(form.email) }}</div>
                 <label class="labelRegisterMenu" for="user_password_first">Password</label>
                 {{ form_widget(form.password.first, {'attr': {'class': 'inputRegisterMenu', 'placeholder' : 'Password'}}) }}
             <div class="errorStyle">{{ form_errors(form.password.first) }}</div>
