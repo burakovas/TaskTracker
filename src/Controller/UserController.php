@@ -42,17 +42,15 @@ class UserController extends AbstractController
         $user = new User();
         $form = $this->createForm(UserType::class, $user);
         $form->handleRequest($request);
-//        dd($form->isValid());
-//        if ($form->isSubmitted() && $form->isValid()) {
-        if ($form->isSubmitted()) {
+        $submittedToken = $request->request->get('token');
 
+        if ($this->isCsrfTokenValid('register-user', $submittedToken) && $form->isSubmitted() && $form->isValid()) {
             $user->setLastName($request->request->get('user')['lastName']);
             $user->setEmail($request->request->get('user')['email']);
             $password = $request->request->get('user')['password']['first'];
             $user->setPassword($passwordEncoder->encodePassword($user, $password));
             $user->setName($request->request->get('user')['name']);
             $user->setRoles(['ROLE_USER']);
-
             $this->dm->persist($user);
             $this->dm->flush();
 

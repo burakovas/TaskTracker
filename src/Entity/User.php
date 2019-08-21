@@ -37,6 +37,7 @@ class User implements UserInterface
      * @var string The hashed password
      * @Assert\NotBlank(message="Пожалуйста, введите пароль")
      * @Assert\Length(max=4096)
+     * @Assert\Length(min=4, minMessage="Min 4 symbols required")
      * @ORM\Column(type="string")
      */
     private $password;
