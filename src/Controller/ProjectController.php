@@ -10,7 +10,7 @@ class ProjectController extends AbstractController
     /**
      * @Route("/project", name="project-index")
      */
-    public function index()
+    public function indexAction()
     {
         //проверка залогинен ли пользователь
         return $this->render('project/projectboard.html.twig', [
@@ -21,7 +21,7 @@ class ProjectController extends AbstractController
     /**
      * @Route("/project/create", name="project_create")
      */
-    public function create()
+    public function createAction()
     {
         return $this->render('project/task-project.html.twig', [
             'controller_name' => 'ProjectController',
