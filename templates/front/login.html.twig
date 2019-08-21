@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+{% block customStylesheets %}
+    <link rel="stylesheet" href="{{ asset('build/css/loginpage.css') }}" />
+    {{ encore_entry_link_tags('app') }}
+{% endblock %}
+{% block title %}Hello FrontController!{% endblock %}
+
+{% block body %}
+    <div class="singUP">Sing up</div>
+    <div class="container">
+        <div class="registerMenu">
+            <form id="app" @submit="checkForm" action="#" method="post">
+                <meta property="video" content="http://video.com/video33353.mp4" />
+                {# <div>{{ test ()}}</div>
+                 <div>{{ token }}</div>#}
+                <p v-if="errors.length">
+                    <b>Please correct the following error(s):</b>
+                <ul>
+                    <li v-for="error in errors">${ error }</li>
+                </ul>
+                </p>
+                <label class="labelRegisterMenu" for="email">Email</label>
+                <input class="inputRegisterMenu" name="_email" id="email" type="email" v-model="email" placeholder="your email"><br>
+                <label class="labelRegisterMenu" for="password">Password</label>
+                <input class="inputRegisterMenu" name="_password" id="password" type="password" v-model="password" placeholder="your password"><br>
+                <div class="checkbox"><input type="checkbox" name="_remember_me" >
+                    <span class="rememberMeCheckbox">Remember me</span><a class="buttonForgotPassoword" href="#">Forgot Password?</a></div>
+
+                <input class="inputRegisterMenu inputRegisterMenuButton" type='submit' value="Enter login">
+                <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+
+            </form>
+
+        </div>
+    </div>
+    {# <div class="rating" id="rating"  data-authenticated={{csrf_token ('authenticate') }}>#}
+
+    </div>
+{% endblock %}
+{% block customJs %}
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="{{ asset('build/js/login.js') }}"></script>
+{% endblock %}
