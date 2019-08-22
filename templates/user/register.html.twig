@@ -1,7 +1,6 @@
 {% extends 'base.html.twig' %}
 {% block customStylesheets %}
     <link rel="stylesheet" href="{{ asset('build/css/registerpage.css') }}" />
-    {{ encore_entry_link_tags('app') }}
 {% endblock %}
 {% block title %}Register{% endblock %}
 
@@ -12,19 +11,19 @@
 
                 <label class="labelRegisterMenu" for="user_name">Name</label>
                 {{ form_widget(form.name, {'attr': {'class': 'inputRegisterMenu', 'placeholder' : 'Your name'}}) }}
-            {{ form_errors(form.name) }}
+        <div class="errorStyle">{{ form_errors(form.name) }}</div>
                 <label class="labelRegisterMenu" for="user_lastName">Last name</label>
                 {{ form_widget(form.lastName, {'attr': {'class': 'inputRegisterMenu', 'placeholder' : 'Your last name'}}) }}
-            {{ form_errors(form.lastName) }}
+           <div class="errorStyle"> {{ form_errors(form.lastName) }}</div>
                 <label class="labelRegisterMenu" for="user_email">Email</label>
                 {{ form_widget(form.email, {'attr': {'class': 'inputRegisterMenu', 'placeholder' : 'Your email'}}) }}
-            {{ form_errors(form.email) }}
+            <div class="errorStyle">{{ form_errors(form.email) }}</div>
                 <label class="labelRegisterMenu" for="user_password_first">Password</label>
                 {{ form_widget(form.password.first, {'attr': {'class': 'inputRegisterMenu', 'placeholder' : 'Password'}}) }}
-            {{ form_errors(form.password.first) }}
+            <div class="errorStyle">{{ form_errors(form.password.first) }}</div>
                 <label class="labelRegisterMenu" for="user_password_second">Confirm Password</label>
                 {{ form_widget(form.password.second, {'attr': {'class': 'inputRegisterMenu', 'placeholder' : 'Confirm password'}}) }}
-            {{ form_errors(form.password.second) }}
+            <div class="errorStyle">{{ form_errors(form.password.second) }}</div>
             <button type="submit" class="inputRegisterMenu inputRegisterMenuButton"  value="Create account">Create account</button>
 
             <input type="hidden" name="token" value="{{ csrf_token('register-user') }}"/>
