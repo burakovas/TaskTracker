@@ -27,3 +27,7 @@
 npm-debug.log
 yarn-error.log
 ###< symfony/webpack-encore-bundle ###
+/assets/css/loginpage.sass
+/assets/css/loginpage.css.map
+/assets/css/registerpage.css.map
+/assets/css/style.css.map
