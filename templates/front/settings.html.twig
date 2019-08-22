@@ -1,0 +1,79 @@
+{% extends 'base.html.twig' %}
+{% block customStylesheets %}
+    <link rel="stylesheet" href="{{ asset('build/css/style2.css') }}" />
+    <link rel="stylesheet" href="{{ asset('build/css/bootstrap2.css') }}"/>
+{% endblock %}
+{% block body %}
+    <div class="all">
+      <div class="page page-settings">
+        <div class="page-nav">
+          <div class="page-nav-inner">
+            <ul class="page-nav__list">
+              <li><a href="#">Different</a></li>
+              <li><a href="#">Open</a></li>
+              <li><a href="#">In Progress</a></li>
+              <li><a href="#">Review</a></li>
+              <li><a href="#">Done</a></li>
+              <li><a href="#">Ideas</a></li>
+            </ul>
+            <div class="btn-group"><a href="#" class="btn btn-default">to others</a><a href="#" class="btn btn-default">for me</a>
+            </div><a href="#" class="btn btn-accent hidden-xs">add task</a>
+          </div>
+        </div>
+        <div class="page-header">
+          <div class="container-fluid">
+            <h1>Settings</h1>
+          </div>
+        </div>
+        <div class="page-content">
+          <div class="settings-form">
+            <ul class="settings-form__nav">
+              <li class="active"><a href="#">Account Information</a></li>
+              <li><a href="#">Profile</a></li>
+              <li><a href="#">Email</a></li>
+              <li><a href="#">Invitions</a></li>
+              <li><a href="#">Blocked Users</a></li>
+              <li><a href="#">Delete Account</a></li>
+            </ul>
+            <div class="settings-form__content">
+              <form action="#" class="form-horizontal">
+                <div class="form-group">
+                  <label class="col-sm-3 control-label">name</label>
+                  <div class="col-sm-9">
+                    <input type="text" placeholder="name" class="form-control">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-3 control-label">e-mail</label>
+                  <div class="col-sm-9">
+                    <input type="email" placeholder="free@mail.com" class="form-control">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-3 control-label">phone</label>
+                  <div class="col-sm-9">
+                    <input type="text" placeholder="+1-532-893-9914" class="form-control">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="col-xs-12">
+                    <div class="radio">
+                      <label>
+                        <input type="radio" checked="" name="group"> Subscribe to our notifications about news and other company events
+                      </label>
+                    </div>
+                    <div class="radio">
+                      <label>
+                        <input type="radio" name="group"> Are you available for any freelance or remote work?
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <button type="submit" class="settings-form__btn btn btn-accent">save settings</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+{% endblock %}

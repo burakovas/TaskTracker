@@ -1,0 +1,78 @@
+{% extends 'base.html.twig' %}
+{% block customStylesheets %}
+    <link rel="stylesheet" href="{{ asset('build/css/style2.css') }}" />
+    <link rel="stylesheet" href="{{ asset('build/css/bootstrap2.css') }}"/>
+{% endblock %}
+{% block body %}
+    <div class="all">
+      <div class="page page-taskfull">
+        <div class="page-nav">
+          <div class="page-nav-inner">
+            <ul class="page-nav__list">
+              <li><a href="#">Different</a></li>
+              <li><a href="#">Open</a></li>
+              <li><a href="#">In Progress</a></li>
+              <li><a href="#">Review</a></li>
+              <li><a href="#">Done</a></li>
+              <li><a href="#">Ideas</a></li>
+            </ul>
+            <div class="btn-group"><a href="#" class="btn btn-default">to others</a><a href="#" class="btn btn-default">for me</a>
+            </div><a href="#" class="btn btn-accent hidden-xs">add task</a>
+          </div>
+        </div>
+        <div class="page-header">
+          <div class="container-fluid">
+            <h1>Full task</h1>
+          </div>
+        </div>
+        <div class="page-content">
+          <div class="taskfull">
+            <div class="taskfull__content">
+              <div class="taskfull__content-inner">
+                <p>Departure so attention pronounce satisfied daughters</p>
+                <div class="lead">Clearly immigration, trade and terrorism were key issues that swayed electoral opinion in a very significant way, just as they did in the UK, and probably will in the European referendums and elections to come.</div>
+                <div class="taskfull__btn"><a href="#" class="btn btn-accent">done task</a> <a href="#" class="btn btn-link btn-edit">edit task</a> <a href="#" class="btn btn-link btn-remove">remove it</a>
+                </div>
+              </div>
+            </div>
+            <div class="taskfull__comments">
+              <div class="taskfull__comments-body">
+                <div class="taskfull__comment">
+                  <div class="taskfull__comment-info">
+                    <div class="taskfull__comment-avatar"><img src="images/image.png" alt=""></div>
+                    <div class="taskfull__comment-name">Amy W. – November 12</div>
+                  </div>
+                  <div class="taskfull__comment-text">Scotland’s Justice Secretary, Michael Matheson, said supporting people into work when they came out of custody was an essential part of their reintegration.</div>
+                </div>
+                <div class="taskfull__comment">
+                  <div class="taskfull__comment-info">
+                    <div class="taskfull__comment-avatar"><img src="images/image.png" alt=""></div>
+                    <div class="taskfull__comment-name">Leonard V. – October 30</div>
+                  </div>
+                  <div class="taskfull__comment-text">Petrobras has been scaling down by selling off assets and pulling out of certain sectors. But the Wembley Stadium proposition is profitable, it is not a wonderful stone in shoe.</div>
+                </div>
+                <div class="taskfull__comment">
+                  <div class="taskfull__comment-info">
+                    <div class="taskfull__comment-avatar"><img src="images/image.png" alt=""></div>
+                    <div class="taskfull__comment-name">Rachel B. – September 7</div>
+                  </div>
+                  <div class="taskfull__comment-text">The allegation has gained widespread traction in the Indian media as one of the reasons for his sacking, though that claim itself has not formed part of the public.</div>
+                </div>
+              </div>
+              <div class="taskfull__comments-form">
+                <div class="taskfull__comments-title">leave a comment</div>
+                <form action="#">
+                  <div class="textarea-wrap">
+                    <textarea cols="88" rows="3"></textarea>
+                  </div>
+                  <div class="text-right">
+                    <button class="btn btn-accent">send message</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+{% endblock %}
