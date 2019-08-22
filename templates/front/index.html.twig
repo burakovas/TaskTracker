@@ -1,25 +1,26 @@
 {% extends 'base.html.twig' %}
 {% block customStylesheets %}
-    <link rel="stylesheet" href="{{ asset('build/css/style2.css') }}" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    {{ encore_entry_link_tags('app') }}
+    <link rel="stylesheet" href="{{ asset('build/css/index.css') }}" />
 {% endblock %}
- 
+{% block title %}Hello FrontController!{% endblock %}
+
 {% block body %}
-    <div class="all">
-        <div class="page-header">
-          <div class="container-fluid">
-            <h1>Contact</h1>
-          </div>
+    <div class="container">
+        <div class="mainText">Welcome to TaskTracer
+            with us you can create and share projects,
+            we will be glad to see you among the active users, rather sign up or log in
         </div>
-        <div class="page-content">
-          <div class="container-fluid">
-            <div class="text-center">
-              <div class="email"><a href="TaskTracker@mail.ru">TaskTracker@mail.ru</a></div>
-              <div class="phone">8 800 000 000</div>
-              <div class="adress">Russian, Moscow<br>Kremlin, 101000</div><a href="#" class="btn btn-accent">feedback</a>
-            </div>
-          </div>
-        </div>
-      </div>
+<div class="buttonContainer">
+        <a href="{{ path('login') }}"  class="inputRegisterMenu inputRegisterMenuButton"  >Log in</a>
+        <a href="{{ path('register') }}" class="inputRegisterMenu inputRegisterMenuButton"  >Create account</a>
+</div>
+    </div>
+
+
+
 {% endblock %}
+{% block customJs %}
+    {#<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="{{ asset('build/js/index.js') }}"></script>#}
+{% endblock %}
+

@@ -3,23 +3,35 @@
 namespace App\Controller;
 
 use App\Entity\Project;
+use Doctrine\ORM\EntityManagerInterface;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
 class ProjectController extends AbstractController
 {
     /**
-     * @Route("/project", name="project-index")
+     * @var \Doctrine\Common\Persistence\ObjectManager
+     */
+    private $dm;
+
+    public function __construct(EntityManagerInterface $manager)
+    {
+        $this->dm = $manager;
+    }
+    /**
+     * @Route("/project", name="project_index")
+     * @Template()
      */
     public function indexAction()
     {
         //проверка залогинен ли пользователь
 
-        $projects = $this->getDoctrine()->getRepository(Project::class)->findAll();
+        $projects = $this->dm->getRepository(Project::class)->findAll();
 
-        return $this->render('project/projectboard.html.twig', [
+        return [
             'projects' => $projects,
-        ]);
+        ];
     }
 
     /**

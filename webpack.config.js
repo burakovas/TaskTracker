@@ -6,9 +6,13 @@ Encore
 
     .setPublicPath('/build')
 
-    .addEntry('app', './assets/js/app.js')
+
+    .addEntry('js/index', './assets/js/index.js')
+    .addEntry('js/login', './assets/js/login.js')
     .addStyleEntry('css/style',['./assets/css/style.css'])
+    .addStyleEntry('css/index',['./assets/css/index.css'])
     .addStyleEntry('css/registerpage',['./assets/css/registerpage.css'])
+    .addStyleEntry('css/loginpage',['./assets/css/loginpage.css'])
     .addStyleEntry('css/style2',['./assets/css/style2.css'])
 
     .enableSassLoader()
@@ -25,3 +29,4 @@ Encore
 ;
 
 module.exports = Encore.getWebpackConfig();
+

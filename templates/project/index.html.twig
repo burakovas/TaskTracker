@@ -1,20 +1,29 @@
 {% extends 'base.html.twig' %}
-
-{% block title %}Hello ProjectController!{% endblock %}
-
+{% block customStylesheets %}
+    <link rel="stylesheet" href="{{ asset('build/css/style2.css') }}" />
+{% endblock %}
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+    <div class="all">
+      <div class="page page-contact">
+        <div class="page-nav">
+          <div class="page-nav-inner">
+            <a href="{{ path('project_create') }}" class="btn btn-accent hidden-xs">Add project</a>
+            <div class="group"><a href="#" class="btn btn-default">Others projects</a><a href="#" class="btn btn-default">My projects</a>
+            </div>
+          </div>
+        </div>
+        <div class="page-content">
+          <div class="container-fluid">
+            <div class="blocks">
+              {% for project in projects %}
+                <a class="myblock" href="#">{{ project.name }}
+                    {% if project.invite==1 %}<img class="imagecrown" src="images/crown.png" alt="crown">{% endif %}
+                </a>
+              {% endfor %}
+            </div>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ '/application/src/Controller/ProjectController.php'|file_link(0) }}">src/Controller/ProjectController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/application/templates/project/index.html.twig'|file_link(0) }}">templates/project/index.html.twig</a></code></li>
-    </ul>
-</div>
+          </div>
+        </div>
+      </div>
+    </div>
 {% endblock %}

@@ -40,6 +40,7 @@
   font-weight: 700;
   margin-left: 170px;
   transition: 2s;
+  padding-left: 18px;
 }
 
 .labelRegisterMenu {
@@ -53,5 +54,16 @@
   color: #03a9f4;
   background-color: #ffffff;
 }
+
+.errorStyle{
+  color: red;
+  margin: 10px 0 10px 0;
+}
+
+.badge{
+  color: red;
+  background-color: white;
+}
+
 
 /*# sourceMappingURL=registerpage.css.map */
