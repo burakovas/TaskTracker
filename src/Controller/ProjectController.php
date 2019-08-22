@@ -29,9 +29,11 @@ class ProjectController extends AbstractController
 
         $projects = $this->dm->getRepository(Project::class)->findAll();
 
-        return [
+        dump($this->getUser());
+        return $this->render('project/index.html.twig', [
             'projects' => $projects,
-        ];
+        ]);
+
     }
 
     /**
