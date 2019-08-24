@@ -14,6 +14,7 @@ Encore
     .addStyleEntry('css/registerpage',['./assets/css/registerpage.css'])
     .addStyleEntry('css/loginpage',['./assets/css/loginpage.css'])
     .addStyleEntry('css/style2',['./assets/css/style2.css'])
+    .addStyleEntry('css/userpage',['./assets/css/userpage.css'])
 
     .enableSassLoader()
 
