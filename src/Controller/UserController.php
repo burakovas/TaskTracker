@@ -76,4 +76,18 @@ class UserController extends AbstractController
         $this->get('session')->set('_security_main', serialize($token));
     }
 
+    /**
+     * @Route("/profile", name="profile")
+     * @Template()
+     */
+    public function profileAction()
+    {
+        /**
+         * @var User $user
+         */
+        $user = $this->getUser();
+
+        return ['user' => $user];
+    }
+
 }
