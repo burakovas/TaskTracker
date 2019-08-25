@@ -80,14 +80,17 @@ class UserController extends AbstractController
      * @Route("/profile", name="profile")
      * @Template()
      */
-    public function profileAction()
+    public function profileAction(Request $request, UserPasswordEncoderInterface $passwordEncoder)
     {
         /**
          * @var User $user
          */
         $user = $this->getUser();
+        $form = $this->createForm(UserType::class, $user);
+        $form->handleRequest($request);
 
-        return ['user' => $user];
+        return ['user' => $user,
+            'form' => $form->createView()];
     }
 
 }
