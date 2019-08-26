@@ -24,7 +24,6 @@
   border: 2px solid #dddddd;
   background-color: white;
   padding-left: 10px;
-  margin-top: 15px;
   display: flex;
 }
 
@@ -57,7 +56,8 @@
 
 .errorStyle{
   color: red;
-  margin: 20px 10px 10px 10px;
+  font-size: 13px;
+  padding: 3px 0 3px 0;
 }
 
 .badge{
@@ -77,6 +77,10 @@
   width: 30%;
   height: 100%;
 
+}
+
+.blockForError{
+  height: 24px;
 }
 
 

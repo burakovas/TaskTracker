@@ -8,35 +8,39 @@
     <div class="profile">Profile</div>
     <div class="container">
         <div class="containerForRegisterMenu">
-            <div class="blockCenterMenu"></div>
             <div class="registerMenu">
                 {{ form_start(form, {'attr':{'id' : 'app'}}) }}
 
                 <label class="labelRegisterMenu" for="user_name">Name</label>
                 <div class="rightShowError">
                     {{ form_widget(form.name, {'attr': {'class': 'inputRegisterMenu', 'placeholder' : 'Your name'}}) }}
-                    <div class="errorStyle">{{ form_errors(form.name) }}</div>
                 </div>
+                <div class="blockForError"><div class="errorStyle">{{ form_errors(form.name) }}</div></div>
+
                 <label class="labelRegisterMenu" for="user_lastName">Last name</label>
                 <div class="rightShowError">
                     {{ form_widget(form.lastName, {'attr': {'class': 'inputRegisterMenu', 'placeholder' : 'Your last name'}}) }}
-                    <div class="errorStyle"> {{ form_errors(form.lastName) }}</div>
                 </div>
+                <div class="blockForError"> <div class="errorStyle"> {{ form_errors(form.lastName) }}</div></div>
+
                 <label class="labelRegisterMenu" for="user_email">Email</label>
                 <div class="rightShowError">
                     {{ form_widget(form.email, {'attr': {'class': 'inputRegisterMenu', 'placeholder' : 'Your email', 'disabled': 'disabled'}}) }}
-                    <div class="errorStyle">{{ form_errors(form.email) }}</div>
                 </div>
+                    <div class="blockForError"><div class="errorStyle">{{ form_errors(form.email) }}</div></div>
+
                 <label class="labelRegisterMenu" for="user_password_first">Password</label>
                 <div class="rightShowError">
                     {{ form_widget(form.password.first, {'attr': {'class': 'inputRegisterMenu', 'placeholder' : 'Password'}}) }}
-                    <div class="errorStyle">{{ form_errors(form.password.first) }}</div>
                 </div>
+                <div class="blockForError"> <div class="errorStyle">{{ form_errors(form.password.first) }}</div></div>
+
                 <label class="labelRegisterMenu" for="user_password_second">Confirm Password</label>
                 <div class="rightShowError">
                     {{ form_widget(form.password.second, {'attr': {'class': 'inputRegisterMenu', 'placeholder' : 'Confirm password'}}) }}
-                    <div class="errorStyle">{{ form_errors(form.password.second) }}</div>
                 </div>
+                <div class="blockForError"> <div class="errorStyle">{{ form_errors(form.password.second) }}</div></div>
+
                 <button type="submit" class="inputRegisterMenu inputRegisterMenuButton" value="Create account">Save
                     changes
                 </button>
@@ -49,7 +53,8 @@
             <div class="containerForTextAndProjectandTask">
                 <span class="textProejctAndTask"><p>Projects</p></span>
                 <div class="project">
-                    <div class="marginForLink"><a href="#" class="taskAndProjectLink">Lorem ipsum dolor sit amet,
+                    <div class="marginForLink"><a href="#" class="taskAndProjectLink"><i class="fas fa-crown"></i>
+                            Lorem ipsum dolor sit amet,
                             consectetur adipisicing elit. Quas, repudiandae.</a></div>
                     <div class="marginForLink"><a href="#" class="taskAndProjectLink">Lorem ipsum dolor sit amet,
                             consectetur adipisicing elit. Nihil, voluptatibus.</a></div>

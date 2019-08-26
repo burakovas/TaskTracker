@@ -1,9 +1,6 @@
 .container {
   margin: 0 auto;
-  flex-direction: column;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
   flex: 1 0 auto;
 }
 
@@ -13,7 +10,8 @@
   justify-content: center;
   flex-wrap: wrap;
   flex-direction: column;
-  width: 70%;
+  height: 440px;
+
 }
 
 .inputRegisterMenu {
@@ -23,7 +21,6 @@
   border: 2px solid #dddddd;
   background-color: white;
   padding-left: 10px;
-  margin-top: 15px;
   display: flex;
 }
 
@@ -56,7 +53,8 @@
 
 .errorStyle{
   color: red;
-  margin: 20px 10px 10px 10px;
+  font-size: 13px;
+  padding: 3px 0 3px 0;
 }
 
 .badge{
@@ -68,32 +66,24 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin-bottom: 10px;
-
-}
-
-.blockCenterMenu{
-  width: 28%;
-  height: 100%;
-
 }
 
 .containerForRegisterMenu{
   display: flex;
   width: 100%;
-  margin-top: 40px;
+  margin-top: 60px;
 }
 
 .containerForProjectAndTask{
   justify-content: space-between;
-  margin-top: 40px;
-  margin-bottom: 50px;
+  margin-top: 60px;
   display: flex;
   width: 100%;
+  flex-direction: column;
 }
 
 .project {
-  height: 400px;
+  height: 250px;
   overflow: auto;
   display: flex;
   flex-direction: column;
@@ -102,7 +92,7 @@
 }
 
 .task{
-  height: 400px;
+  height: 250px;
   overflow: auto;
   display: flex;
   flex-direction: column;
@@ -134,26 +124,30 @@
 }
 
 .containerForTextAndProjectandTask{
-  width: 45%;
   border: 1px solid #dddddd;
   border-radius: 5px;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  margin-bottom: 30px;
 }
 
 .taskAndProjectLink{
   text-decoration: none;
   color: #212121;
   font-family: Roboto, serif;
-  font-size: 13px;
+  font-size: 16px;
   font-weight: 400;
 }
 
 
-.taskAndProjectLink:hover,.taskAndProjectLink:link{
+.taskAndProjectLink:hover,.taskAndProjectLink:focus{
   color: #212121;
   text-decoration: none;
+}
+
+.taskAndProjectLink:visited{
+  color: #212121;
 }
 
 .marginForLink{
@@ -161,6 +155,9 @@
   padding: 0 30px 0 30px;
 }
 
+.blockForError{
+  height: 24px;
+}
 
 
 /*# sourceMappingURL=registerpage.css.map */
