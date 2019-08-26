@@ -71,7 +71,7 @@
 .containerForRegisterMenu{
   display: flex;
   width: 100%;
-  margin-top: 60px;
+  margin-top: 96px;
 }
 
 .containerForProjectAndTask{
@@ -83,7 +83,7 @@
 }
 
 .project {
-  height: 250px;
+  height: 240px;
   overflow: auto;
   display: flex;
   flex-direction: column;
@@ -92,7 +92,7 @@
 }
 
 .task{
-  height: 250px;
+  height: 240px;
   overflow: auto;
   display: flex;
   flex-direction: column;
@@ -124,7 +124,7 @@
 }
 
 .containerForTextAndProjectandTask{
-  border: 1px solid #dddddd;
+  border: 2px solid #dddddd;
   border-radius: 5px;
   display: flex;
   flex-direction: column;
@@ -157,6 +157,42 @@
 
 .blockForError{
   height: 24px;
+}
+
+::-webkit-scrollbar-button {
+  background-repeat:no-repeat;
+  width:6px;
+  height:0;
+}
+
+::-webkit-scrollbar-track {
+  background-color:#dddddd;
+  box-shadow:0 0 3px #000 inset;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  background-color:#03a9f4;
+  box-shadow:0 1px 1px #fff inset;
+  background-image:url('https://yraaa.ru/_pu/24/59610063.png');
+  background-position:center;
+  background-repeat:no-repeat;
+}
+
+::-webkit-resizer{
+  background-repeat:no-repeat;
+  width:7px;
+  height:0;
+}
+
+::-webkit-scrollbar{
+  width: 11px;
+}
+
+.marginFirstLink{
+  margin-top: 10px;
 }
 
 
