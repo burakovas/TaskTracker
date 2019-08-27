@@ -9,44 +9,63 @@
     <div class="container">
         <div class="containerForRegisterMenu">
             <div class="registerMenu">
-                {{ form_start(form, {'attr':{'id' : 'app'}}) }}
-
-                <label class="labelRegisterMenu" for="user_name">Name</label>
-                <div class="rightShowError">
-                    {{ form_widget(form.name, {'attr': {'class': 'inputRegisterMenu', 'placeholder' : 'Your name'}}) }}
-                </div>
-                <div class="blockForError"><div class="errorStyle">{{ form_errors(form.name) }}</div></div>
-
-                <label class="labelRegisterMenu" for="user_lastName">Last name</label>
-                <div class="rightShowError">
-                    {{ form_widget(form.lastName, {'attr': {'class': 'inputRegisterMenu', 'placeholder' : 'Your last name'}}) }}
-                </div>
-                <div class="blockForError"> <div class="errorStyle"> {{ form_errors(form.lastName) }}</div></div>
+                <form name="user" id="app" action="{{ path('profile') }}" method="post">
 
                 <label class="labelRegisterMenu" for="user_email">Email</label>
                 <div class="rightShowError">
-                    {{ form_widget(form.email, {'attr': {'class': 'inputRegisterMenu', 'placeholder' : 'Your email', 'disabled': 'disabled'}}) }}
+                    <input type="email" name="user[email]" class="inputRegisterMenu" placeholder="Your email"
+                           disabled="disabled" value="{{ app.user.email }}">
                 </div>
-                    <div class="blockForError"><div class="errorStyle">{{ form_errors(form.email) }}</div></div>
+                <div class="blockForError">
+                </div>
 
-                <label class="labelRegisterMenu" for="user_password_first">Password</label>
+                <label class="labelRegisterMenu" for="user_name">Name</label>
                 <div class="rightShowError">
-                    {{ form_widget(form.password.first, {'attr': {'class': 'inputRegisterMenu', 'placeholder' : 'Password'}}) }}
+                    <input type="text" name="user[name]" class="inputRegisterMenu" placeholder="Your last name"
+                           value="{{ app.user.name }}">
                 </div>
-                <div class="blockForError"> <div class="errorStyle">{{ form_errors(form.password.first) }}</div></div>
+                <div class=" blockForError">
+                    <div class="errorStyle">{% if errors.name is defined%}{{ errors.name }}{% endif %}</div>
+                </div>
 
-                <label class="labelRegisterMenu" for="user_password_second">Confirm Password</label>
+                <label class="labelRegisterMenu" for="user_lastName">Last name</label>
                 <div class="rightShowError">
-                    {{ form_widget(form.password.second, {'attr': {'class': 'inputRegisterMenu', 'placeholder' : 'Confirm password'}}) }}
+                    <input type="text" name="user[lastName]" class="inputRegisterMenu" placeholder="Your last name"
+                           value="{{ app.user.lastName }}">
                 </div>
-                <div class="blockForError"> <div class="errorStyle">{{ form_errors(form.password.second) }}</div></div>
+                <div class=" blockForError">
+                    <div class="errorStyle"> {% if errors.lastName is defined%}{{ errors.lastName  }}{% endif %}</div>
+                </div>
+
+                <label class="labelRegisterMenu" for="currentPassword">Password</label>
+                <div class="rightShowError">
+                    <input type="password" name="user[currentPassword]" class="inputRegisterMenu" placeholder="Password">
+                </div>
+                    <div class="blockForError">
+                        <div class="errorStyle">{% if errors.notValidCurrentPassword is defined%}{{ errors.notValidCurrentPassword }}{% endif %}</div>
+                    </div>
+                <label class="labelRegisterMenu" for="user_password_first">Change password</label>
+                <div class="rightShowError">
+                    <input type="password" name="user[password][first]" class="inputRegisterMenu" placeholder="New password">
+                </div>
+                <div class="blockForError">
+                    <div class="errorStyle">{% if errors.password is defined%}{{ errors.password }}{% endif %}</div>
+                </div>
+
+                <label class="labelRegisterMenu" for="user_password_second">Confirm new password</label>
+                <div class="rightShowError">
+                    <input type="password" name="user[password][second]" class="inputRegisterMenu" placeholder="Confirm new password">
+                </div>
+                <div class="blockForError">
+{#                    <div class="errorStyle">{{ form_errors(form.password.second) }}</div>#} // ГЛЕБ, тут собщение об ошибке, если пароли не равны
+                </div>
 
                 <button type="submit" class="inputRegisterMenu inputRegisterMenuButton" value="Create account">Save
                     changes
                 </button>
 
-                <input type="hidden" name="token" value="{{ csrf_token('register-user') }}"/>
-                {{ form_end(form) }}
+                <input type="hidden" name="token" value="{{ csrf_token('user-profile') }}"/>
+                </form>
             </div>
         </div>
         <div class="containerForProjectAndTask">
@@ -54,7 +73,8 @@
             <div class="containerForTextAndProjectandTask">
 
                 <div class="project">
-                    <div class="marginForLink marginFirstLink"><a href="#" class="taskAndProjectLink"><i class="fas fa-crown"></i>
+                    <div class="marginForLink marginFirstLink"><a href="#" class="taskAndProjectLink"><i
+                                    class="fas fa-crown"></i>
                             Lorem ipsum dolor sit amet,
                             consectetur adipisicing elit. Quas, repudiandae.</a></div>
                     <div class="marginForLink"><a href="#" class="taskAndProjectLink">Lorem ipsum dolor sit amet,
@@ -82,7 +102,8 @@
             <div class="containerForTextAndProjectandTask">
 
                 <div class="task">
-                    <div class="marginForLink marginFirstLink"><a href="#" class="taskAndProjectLink">Lorem ipsum dolor sit amet,
+                    <div class="marginForLink marginFirstLink"><a href="#" class="taskAndProjectLink">Lorem ipsum dolor
+                            sit amet,
                             consectetur adipisicing elit. Nihil, voluptatibus.</a></div>
                     <div class="marginForLink"><a href="#" class="taskAndProjectLink">Lorem ipsum dolor sit amet,
                             consectetur adipisicing elit. Nihil, voluptatibus.</a></div>
