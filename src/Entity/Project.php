@@ -26,7 +26,7 @@ class Project
     private $name;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="text")
      */
     private $description;
 
@@ -40,12 +40,23 @@ class Project
      */
     private $created_at;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="createdProjects")
+     */
+    private $createdBy;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\User", inversedBy="projectsInvitedTo")
+     */
+    private $invitedUsers;
+
 
     public function __construct()
     {
         $this->invites = new ArrayCollection();
         $this->usersThatInProject = new ArrayCollection();
         $this->invited_user = new ArrayCollection();
+        $this->invitedUsers = new ArrayCollection();
     }
 
 
@@ -117,6 +128,44 @@ class Project
 
         return $this;
 
+    }
+
+    public function getCreatedBy(): ?User
+    {
+        return $this->createdBy;
+    }
+
+    public function setCreatedBy(?User $createdBy): self
+    {
+        $this->createdBy = $createdBy;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|User[]
+     */
+    public function getInvitedUsers(): Collection
+    {
+        return $this->invitedUsers;
+    }
+
+    public function addInvitedUser(User $invitedUser): self
+    {
+        if (!$this->invitedUsers->contains($invitedUser)) {
+            $this->invitedUsers[] = $invitedUser;
+        }
+
+        return $this;
+    }
+
+    public function removeInvitedUser(User $invitedUser): self
+    {
+        if ($this->invitedUsers->contains($invitedUser)) {
+            $this->invitedUsers->removeElement($invitedUser);
+        }
+
+        return $this;
     }
 
 

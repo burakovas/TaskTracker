@@ -26,16 +26,23 @@ class ProjectController extends AbstractController
      */
     public function indexAction()
     {
+        $user = $this->getUser();
+        $userProjects = [];
 
-        $projects = $this->dm
-            ->getRepository(Project::class)
-            ->findAll();
-            //->findBy(['invited_user' => 2]);
+        $projectsInvitedTo = $user->getProjectsInvitedTo();
+        foreach ($projectsInvitedTo as $project){
+            array_push($userProjects, $project);
+        }
 
-        dump($this->getUser());
-        dump($projects);
+        $projectCreatedByUser = $user->getCreatedProjects();
+        foreach ($projectCreatedByUser as $project){
+            array_push($userProjects, $project);
+        }
+
+        dump($userProjects);
+
         return $this->render('project/index.html.twig', [
-            'projects' => $projects,
+            'projects' => $userProjects,
         ]);
     }
 

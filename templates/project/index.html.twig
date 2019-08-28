@@ -17,11 +17,10 @@
                     <div class="blocks">
                         {% for project in projects %}
                             <a class="myblock" href="#">{{ project.name }}
-                                <img class="imagecrown" src="images/crown.png" alt="crown">
+                                {% if app.user == project.createdBy %}<img class="imagecrown" src="images/crown.png" alt="crown">{% endif %}
                             </a>
                         {% endfor %}
                     </div>
-
                 </div>
             </div>
         </div>
