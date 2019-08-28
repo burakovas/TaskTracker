@@ -164,7 +164,6 @@ class Project
         if ($this->invitedUsers->contains($invitedUser)) {
             $this->invitedUsers->removeElement($invitedUser);
         }
-
         return $this;
     }
 

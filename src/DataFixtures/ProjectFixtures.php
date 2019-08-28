@@ -18,93 +18,39 @@ class ProjectFixtures extends Fixture implements DependentFixtureInterface
 
     private function loadProjects($manager)
     {
-        foreach ($this->getProjectsData() as [$name, $user_id, $description]){
+        foreach ($this->getProjectsData() as [$name, $user_mail, $description, $inv_mail]){
             $project = new Project();
-            $user = $manager->getRepository(User::class)->find($user_id);
+            $user = $manager->getRepository(User::class)->findOneBy(['email' => $user_mail]);
+            $user_inv = $manager->getRepository(User::class)->findOneBy(['email' => $inv_mail]);
             $project->setName($name);
             $project->setDate(\DateTime::createFromFormat('Y-m-d', "2018-09-09"));
             $project->setDescription($description);
-
-            $manager->persist($project);
-        }
-        $manager->flush();
-
-        $this->loadUsers($manager);
-        //$this->loadCreators($manager);
-    }
-
-    public function loadUsers($manager)
-    {
-        foreach ($this->usersData() as [$project_id, $user_id])
-        {
-            $project = $manager->getRepository(Project::class)->find($project_id);
-            $user = $manager->getRepository(User::class)->find($user_id);
-            $project->addInvitedUser($user);
-            $manager->persist($project);
-        }
-        $manager->flush();
-    }
-
-    private function usersData()
-    {
-        return [
-            [1, 1],
-            [1, 2],
-
-            [2, 1],
-            [2, 3],
-        ];
-    }
-
-    public function loadCreators($manager)
-    {
-        foreach ($this->creatorsData() as [$project_id, $user_id])
-        {
-            $project = $manager->getRepository(Project::class)->find($project_id);
-            $user = $manager->getRepository(User::class)->find($user_id);
             $project->setCreatedBy($user);
+            $project->addInvitedUser($user_inv);
+
             $manager->persist($project);
         }
         $manager->flush();
     }
-
-    private function creatorsData()
-    {
-        return [
-            [1, 1],
-            [2, 1],
-            [3, 2],
-            [4, 1],
-            [5, 2],
-            [6, 3],
-            [7, 2],
-            [8, 1],
-            [9, 3],
-            [10, 2],
-            [11, 1],
-            [12, 2],
-            ];
-    }
-
 
     private function getProjectsData()
     {
         return [
-            ['First Project1',1 ,"some Description", 1],
-            ['Task Tracker1',1,"some Description", 1],
-            ['Some project1',1,"some Description",2],
+            ['First Project1','vasya@mail.ru' ,"some Description", 'andrey@mail.ru'],
+            ['Task Tracker DRD 1','vasya@mail.ru',"some Description", 'petr@mail.ru'],
+            ['Some project MGM 1','vasya@mail.ru',"some Description",'serj@mail.ru'],
 
-            ['First Project2',2,"some Description",1],
-            ['Task Tracker2',2,"some Description",2],
-            ['Some project2',2,"some Description",3],
+            ['First Project Cooper 2','petr@mail.ru',"some Description",'vasya@mail.ru'],
+            ['Task Tracker Mister 2','petr@mail.ru',"some Description",'serj@mail.ru'],
+            ['Some project Evil Corp 2','petr@mail.ru',"some Description",'andrey@mail.ru'],
 
-            ['First Project3',3,"some Description",2],
-            ['Task Tracker3',3,"some Description",1],
-            ['Some project3',3,"some Description",3],
+            ['First Project Master of Puppets 3','serj@mail.ru',"some Description",'vasya@mail.ru'],
+            ['Task Tracker One 3','serj@mail.ru',"some Description",'andrey@mail.ru'],
+            ['Some project Damage Inc 3','serj@mail.ru',"some Description",'petr@mail.ru'],
 
-            ['First Project4', 4,"some Description",2],
-            ['Task Tracker4', 4,"some Description",1],
-            ['Some project4', 4,"some Description",2],
+            ['First Project Unforgiven 4', 'andrey@mail.ru' ,"some Description",'serj@mail.ru'],
+            ['Task Tracker Memory remains 4', 'andrey@mail.ru' ,"some Description",'vasya@mail.ru'],
+            ['Some project Turn ThePage 4', 'andrey@mail.ru' ,"some Description",'petr@mail.ru'],
         ];
     }
 

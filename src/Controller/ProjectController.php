@@ -66,7 +66,4 @@ class ProjectController extends AbstractController
         ]);
     }
 
-
-
-
 }
