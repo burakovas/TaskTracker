@@ -18,23 +18,19 @@ class ProjectFixtures extends Fixture implements DependentFixtureInterface
 
     private function loadProjects($manager)
     {
-        foreach ($this->getProjectsData() as [$name, $user_id]){
+        foreach ($this->getProjectsData() as [$name, $user_id, $description]){
             $project = new Project();
             $user = $manager->getRepository(User::class)->find($user_id);
-            $project->setUser($user);
             $project->setName($name);
             $project->setDate(\DateTime::createFromFormat('Y-m-d', "2018-09-09"));
-            $project->setCategory(1);
-            $project->setDescription("some Description");
-            $project->setInvite(1);
-            if ($name == "Task Tracker") {
-                $project->setInvite(2);
-            }
+            $project->setDescription($description);
+
             $manager->persist($project);
         }
         $manager->flush();
 
         $this->loadUsers($manager);
+        //$this->loadCreators($manager);
     }
 
     public function loadUsers($manager)
@@ -60,20 +56,55 @@ class ProjectFixtures extends Fixture implements DependentFixtureInterface
         ];
     }
 
+    public function loadCreators($manager)
+    {
+        foreach ($this->creatorsData() as [$project_id, $user_id])
+        {
+            $project = $manager->getRepository(Project::class)->find($project_id);
+            $user = $manager->getRepository(User::class)->find($user_id);
+            $project->setCreatedBy($user);
+            $manager->persist($project);
+        }
+        $manager->flush();
+    }
+
+    private function creatorsData()
+    {
+        return [
+            [1, 1],
+            [2, 1],
+            [3, 2],
+            [4, 1],
+            [5, 2],
+            [6, 3],
+            [7, 2],
+            [8, 1],
+            [9, 3],
+            [10, 2],
+            [11, 1],
+            [12, 2],
+            ];
+    }
+
+
     private function getProjectsData()
     {
         return [
-            ['First Project1',1],
-            ['Task Tracker1',1],
-            ['Some project1',1],
+            ['First Project1',1 ,"some Description", 1],
+            ['Task Tracker1',1,"some Description", 1],
+            ['Some project1',1,"some Description",2],
 
-            ['First Project2',2],
-            ['Task Tracker2',2],
-            ['Some project2',2],
+            ['First Project2',2,"some Description",1],
+            ['Task Tracker2',2,"some Description",2],
+            ['Some project2',2,"some Description",3],
 
-            ['First Project3',3],
-            ['Task Tracker3',3],
-            ['Some project3',3],
+            ['First Project3',3,"some Description",2],
+            ['Task Tracker3',3,"some Description",1],
+            ['Some project3',3,"some Description",3],
+
+            ['First Project4', 4,"some Description",2],
+            ['Task Tracker4', 4,"some Description",1],
+            ['Some project4', 4,"some Description",2],
         ];
     }
 

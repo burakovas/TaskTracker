@@ -16,25 +16,20 @@ class AppFixtures extends Fixture
 
     private function loadProjects($manager)
     {
-        foreach ($this->getProjectsData() as $name){
-            $project = new Project();
-            $project->setName($name);
-            $project->setDate(\DateTime::createFromFormat('Y-m-d', "2018-09-09"));
-            $project->setCategory(1);
-            $project->setDescription("some Description");
-            $project->setInvite(1);
+        //foreach ($this->getProjectsData() as $name){
+        //    $project = new Project();
+        //    $project->setName($name);
+        //    $project->setDate(\DateTime::createFromFormat('Y-m-d', "2018-09-09"));
+        //    $project->setCategory(1);
+        //    $project->setDescription("some Description");
+        //    $project->setInvite(1);
 
-            $manager->persist($project);
-        }
+        //    $manager->persist($project);
+        //}
 
-        $manager->flush();
-
-    }
-
-
-    private function getProjectsData() {
-
-        return ['First Project', 'Task Tracker', 'Some project'];
+        //$manager->flush();
 
     }
+
+
 }
