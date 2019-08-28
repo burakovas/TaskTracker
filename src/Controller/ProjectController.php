@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Project;
+use App\Entity\User;
 use Doctrine\ORM\EntityManagerInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -25,15 +26,17 @@ class ProjectController extends AbstractController
      */
     public function indexAction()
     {
-        //проверка залогинен ли пользователь
 
-        $projects = $this->dm->getRepository(Project::class)->findAll();
+        $projects = $this->dm
+            ->getRepository(Project::class)
+            ->findAll();
+            //->findBy(['invited_user' => 2]);
 
         dump($this->getUser());
+        dump($projects);
         return $this->render('project/index.html.twig', [
             'projects' => $projects,
         ]);
-
     }
 
     /**
@@ -45,5 +48,18 @@ class ProjectController extends AbstractController
             'controller_name' => 'ProjectController',
         ]);
     }
+
+    /**
+     * @Route("/project/forme", name="project_forme")
+     */
+    public function formeAction()
+    {
+        return $this->render('project/dashboard-forme.html.twig', [
+            'controller_name' => 'ProjectController',
+        ]);
+    }
+
+
+
 
 }
