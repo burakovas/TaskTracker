@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -53,6 +55,24 @@ class User implements UserInterface
      * @ORM\Column(type="string", length=50)
      */
     private $lastName;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Project", mappedBy="invited_user")
+     */
+    private $invited_user;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Project", mappedBy="user")
+     */
+    private $creator_user;
+
+    public function __construct()
+    {
+        $this->user_project = new ArrayCollection();
+        $this->userProjects = new ArrayCollection();
+        $this->invited_user = new ArrayCollection();
+        $this->creator_user = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -155,4 +175,64 @@ class User implements UserInterface
 
         return $this;
     }
+
+    /**
+     * @return Collection|Project[]
+     */
+    public function getInvitedUser(): Collection
+    {
+        return $this->invited_user;
+    }
+
+    public function addInvitedUser(Project $invitedUser): self
+    {
+        if (!$this->invited_user->contains($invitedUser)) {
+            $this->invited_user[] = $invitedUser;
+            $invitedUser->addInvitedUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeInvitedUser(Project $invitedUser): self
+    {
+        if ($this->invited_user->contains($invitedUser)) {
+            $this->invited_user->removeElement($invitedUser);
+            $invitedUser->removeInvitedUser($this);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Project[]
+     */
+    public function getCreatorUser(): Collection
+    {
+        return $this->creator_user;
+    }
+
+    public function addCreatorUser(Project $creatorUser): self
+    {
+        if (!$this->creator_user->contains($creatorUser)) {
+            $this->creator_user[] = $creatorUser;
+            $creatorUser->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCreatorUser(Project $creatorUser): self
+    {
+        if ($this->creator_user->contains($creatorUser)) {
+            $this->creator_user->removeElement($creatorUser);
+            // set the owning side to null (unless already changed)
+            if ($creatorUser->getUser() === $this) {
+                $creatorUser->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
 }
