@@ -7,6 +7,7 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
+ * @ORM\Table(name="projects")
  * @ORM\HasLifecycleCallbacks()
  * @ORM\Entity(repositoryClass="App\Repository\ProjectRepository")
  */
@@ -30,11 +31,6 @@ class Project
     private $description;
 
     /**
-     * @ORM\Column(type="integer")
-     */
-    private $category;
-
-    /**
      * @ORM\Column(type="datetime")
      */
     private $date;
@@ -43,22 +39,6 @@ class Project
      * @ORM\Column(type="datetime")
      */
     private $created_at;
-
-    /**
-     * @ORM\Column(type="integer")
-     */
-    private $invite;
-
-    /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\User", inversedBy="invited_user")
-     */
-    private $invited_user;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="creator_user")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $user;
 
 
     public function __construct()
@@ -94,18 +74,6 @@ class Project
     public function setDescription(string $description): self
     {
         $this->description = $description;
-
-        return $this;
-    }
-
-    public function getCategory(): ?int
-    {
-        return $this->category;
-    }
-
-    public function setCategory(int $category): self
-    {
-        $this->category = $category;
 
         return $this;
     }
@@ -149,56 +117,6 @@ class Project
 
         return $this;
 
-    }
-
-    public function getInvite(): ?int
-    {
-        return $this->invite;
-    }
-
-    public function setInvite(int $invite): self
-    {
-        $this->invite = $invite;
-
-        return $this;
-    }
-
-    /**
-     * @return Collection|User[]
-     */
-    public function getInvitedUser(): Collection
-    {
-        return $this->invited_user;
-    }
-
-    public function addInvitedUser(User $invitedUser): self
-    {
-        if (!$this->invited_user->contains($invitedUser)) {
-            $this->invited_user[] = $invitedUser;
-        }
-
-        return $this;
-    }
-
-    public function removeInvitedUser(User $invitedUser): self
-    {
-        if ($this->invited_user->contains($invitedUser)) {
-            $this->invited_user->removeElement($invitedUser);
-        }
-
-        return $this;
-    }
-
-    public function getUser(): ?User
-    {
-        return $this->user;
-    }
-
-    public function setUser(?User $user): self
-    {
-        $this->user = $user;
-
-        return $this;
     }
 
 
