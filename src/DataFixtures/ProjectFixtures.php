@@ -12,7 +12,8 @@ use App\DataFixtures\UserFixtures;
 
 class ProjectFixtures extends Fixture implements DependentFixtureInterface
 {
-    public function load(ObjectManager $manager, TokenRandomizeService $token)
+
+    public function load(ObjectManager $manager)
     {
         $this->loadProjects($manager);
     }
@@ -28,6 +29,7 @@ class ProjectFixtures extends Fixture implements DependentFixtureInterface
             $project->setDescription($description);
             $project->setCreatedBy($user);
             $project->addInvitedUser($user_inv);
+            $project->setToken(11);
 
             $manager->persist($project);
         }
