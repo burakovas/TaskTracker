@@ -4,6 +4,7 @@ namespace App\DataFixtures;
 
 use App\Entity\Project;
 use App\Entity\User;
+use App\Services\TokenRandomizeService;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
@@ -11,7 +12,7 @@ use App\DataFixtures\UserFixtures;
 
 class ProjectFixtures extends Fixture implements DependentFixtureInterface
 {
-    public function load(ObjectManager $manager)
+    public function load(ObjectManager $manager, TokenRandomizeService $token)
     {
         $this->loadProjects($manager);
     }
