@@ -29,7 +29,7 @@ class ProjectFixtures extends Fixture implements DependentFixtureInterface
             $project->setDescription($description);
             $project->setCreatedBy($user);
             $project->addInvitedUser($user_inv);
-            $project->setToken(11);
+            $project->setToken($this->getToken());
 
             $manager->persist($project);
         }
@@ -38,6 +38,7 @@ class ProjectFixtures extends Fixture implements DependentFixtureInterface
 
     private function getProjectsData()
     {
+
         return [
             ['First Project1','vasya@mail.ru' ,"some Description", 'andrey@mail.ru'],
             ['Task Tracker DRD 1','vasya@mail.ru',"some Description", 'petr@mail.ru'],
@@ -57,10 +58,17 @@ class ProjectFixtures extends Fixture implements DependentFixtureInterface
         ];
     }
 
+
+
     public function getDependencies()
     {
         return array(
             UserFixtures::class
         );
+    }
+
+    public function getToken()
+    {
+        return substr(sha1(rand()), 0, 100);
     }
 }
